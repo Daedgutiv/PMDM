@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_nvertical_margin"
+        android:layout_marginRight="@dimen/activity_nhorizontal_margin">
+
+        <EditText
+            android:id="@+id/edDni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:gravity="right"
+            android:hint="@string/DNI"
+            android:inputType="number" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/boton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calcular_letra"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:onClick="calcula"/>
+            <TextView
+                android:id="@+id/lblResult"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:text="@string/Sinletra"
+                android:gravity="right"
+                android:layout_marginLeft="10dp"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.34"
+            android:orientation="horizontal">
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

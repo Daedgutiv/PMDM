@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="DNI">Dni: </string>
+    <string name="NIF">NIF: </string>
+    <string name="Sinletra">Sin letra</string>
+    <string name="title_activity_main">DNI app</string>
+    <string name="label_default_result">Sin letra</string>
+</resources>

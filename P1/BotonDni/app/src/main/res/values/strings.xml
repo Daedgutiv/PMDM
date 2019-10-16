@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="DNI">Dni: </string>
+    <string name="NIF">NIF: </string>
+    <string name="Sinletra">Sin letra</string>
+    <string name="title_activity_main">DNI Boton</string>
+    <string name="label_default_result">Error: DNI incorrecto</string>
+    <string name="calcular_letra">Calcular Letra</string>
+</resources>
+
