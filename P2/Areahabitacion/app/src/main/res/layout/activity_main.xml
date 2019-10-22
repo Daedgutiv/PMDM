@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.ui.MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_marginLeft="@dimen/activity_nvertical_margin"
-            android:layout_marginRight="@dimen/activity_nhorizontal_margin">
+            android:layout_marginRight="@dimen/activity_horizontal_margin">
             <TextView
                 android:id="@+id/ancho"
                 android:layout_height="wrap_content"
@@ -47,14 +47,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:ems="10"
+                android:ems="8"
                 android:hint="@string/ancho"
                 android:inputType="number"/>
             <EditText
                 android:id="@+id/num2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:ems="8"
                 android:gravity="center"
                 android:hint="@string/largo"
                 android:inputType="number"/>
@@ -62,7 +63,29 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
-
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/calcular_rea"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/a"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:onClick="calcula">
+            </Button>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/resultado"
+                android:ems="8"
+                android:gravity="center"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
