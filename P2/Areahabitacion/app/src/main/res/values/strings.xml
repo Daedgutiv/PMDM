@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AreaHabitacion</string>
+    <string name="ancho">Ancho:</string>
+    <string name="largo">Largo:</string>
+</resources>
