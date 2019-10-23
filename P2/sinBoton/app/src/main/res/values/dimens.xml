@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources> <dimen name="activity_horizontal_margin">20dp</dimen>
+    <dimen name="activity_vertical_margin">35dp</dimen>
+    <dimen name="activity_nhorizontal_margin">10dp</dimen>
+    <dimen name="activity_nvertical_margin">-20dp</dimen>
+    <dimen name="a">10dp</dimen>
+</resources>

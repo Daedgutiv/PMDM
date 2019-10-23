@@ -14,16 +14,15 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="@dimen/activity_nvertical_margin"
+            android:layout_width="fill_parent"
             android:layout_marginRight="@dimen/activity_horizontal_margin">
             <TextView
                 android:id="@+id/ancho"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:text="@string/ancho"
-                android:gravity="center"
+                android:gravity="left"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 />
             <TextView
@@ -32,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:text="@string/largo"
                 android:ems="8"
-                android:gravity="center"
+                android:gravity="left"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 />
         </LinearLayout>
