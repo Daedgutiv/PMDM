@@ -1,21 +1,15 @@
 package com.example.sinboton.ui;
-
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.area1.ui.R;
-
 public class MainActivity extends AppCompatActivity {
-
     private TextView result;
     private EditText largo;
     private  EditText ancho;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +31,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void calcula(){
         result = (TextView) this.findViewById(R.id.result);
         try {
-            int resultado = Integer.parseInt(largo.getText().toString())*Integer.parseInt(ancho.getText().toString());
-            result.setText(String.valueOf(resultado));
+            float resultado = Float.parseFloat(largo.getText().toString())*Float.parseFloat(ancho.getText().toString());
+            result.setText(String.valueOf(resultado)+ " m²");
         } catch(NumberFormatException fmt){
             result.setText(R.string.error);
         }
