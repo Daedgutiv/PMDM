@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">sinBoton</string>
-    <string name="ancho">Ancho:</string>
-    <string name="largo">Largo:</string>
-    <string name="calcular_rea">Calcular área</string>
-    <string name="resultado">Resultado</string>
-    <string name="error">Error, medidas incorrectas</string>
-</resources>
