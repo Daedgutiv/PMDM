@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void calcula(){
         result = (TextView) this.findViewById(R.id.result);
-        if (largo.getText().toString().equalsIgnoreCase("") && ancho.getText().toString().equalsIgnoreCase("")){
+        if (largo.getText().toString().isEmpty() && ancho.getText().toString().isEmpty()){
             result.setText(R.string.resultado);
         } else if (largo.getText().toString().equalsIgnoreCase("")==false && ancho.getText().toString().equalsIgnoreCase("")== false){
             float resultado = Float.parseFloat(largo.getText().toString())*Float.parseFloat(ancho.getText().toString());
