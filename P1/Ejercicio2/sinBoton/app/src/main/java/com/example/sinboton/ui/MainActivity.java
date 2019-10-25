@@ -33,10 +33,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void calcula(){
         result = (TextView) this.findViewById(R.id.result);
-        try {
+        if (largo.getText().toString().equalsIgnoreCase("") && ancho.getText().toString().equalsIgnoreCase("")){
+            result.setText(R.string.resultado);
+        } else if (largo.getText().toString().equalsIgnoreCase("")==false && ancho.getText().toString().equalsIgnoreCase("")== false){
             float resultado = Float.parseFloat(largo.getText().toString())*Float.parseFloat(ancho.getText().toString());
             result.setText(String.valueOf(resultado)+ " m²");
-        } catch(NumberFormatException fmt){
+        }else {
             result.setText(R.string.error);
         }
         return;
