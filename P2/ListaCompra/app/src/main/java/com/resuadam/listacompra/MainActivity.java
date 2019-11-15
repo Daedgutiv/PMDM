@@ -2,6 +2,7 @@ package com.resuadam.listacompra;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -112,4 +113,16 @@ public class MainActivity extends Activity {
 
     private ArrayAdapter<String> itemsAdapter;
     private ArrayList<String> items;
+    private boolean introducirFecha (final String aux){
+        DatePickerDialog date = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+            }
+        },
+                2019,04,8
+        );
+        date.show();
+        return true;
+    }
 }
