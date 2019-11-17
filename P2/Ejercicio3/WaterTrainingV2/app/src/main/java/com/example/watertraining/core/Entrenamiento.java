@@ -1,11 +1,9 @@
 package com.example.watertraining.core;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-
 public class Entrenamiento {
     private float min;
     private float distance;
+    private String nombre;
 
     public Entrenamiento (){
     }
@@ -19,14 +17,12 @@ public class Entrenamiento {
     }
 
     public float getKmHour (){
-        return (this.min/60)/this.distance;
+        return this.distance/(this.min/60);
     }
 
     @Override
     public String toString(){
-        DecimalFormat formato = new DecimalFormat("#0.00");
-        String aux = "Entrenamiento: Se han recorrido " + formato.format(this.distance) + " Km en " + formato.format(this.min) + " minutos. Su velocidad media fue de " + formato.format(this.getKmHour()) + " Km/h";
-        return aux;
+        return "Entrenamiento: " + nombre;
     }
 
     public float getMin() {
@@ -43,5 +39,13 @@ public class Entrenamiento {
 
     public void setDistance(float distance) {
         this.distance = distance;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }
