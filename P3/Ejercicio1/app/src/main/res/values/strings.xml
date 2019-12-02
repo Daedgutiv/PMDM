@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WhoAmI</string>
+    <string name="lblNombre">Nombre</string>
+    <string name="lblDireccion">Dirección</string>
+    <string name="lblEmail">E.mail</string>
+    <string name="apellido1">Primer Apellido</string>
+    <string name="apellido2">Segundo Apellido</string>
+    <string name="apellidos">Apellidos</string>
+</resources>
