@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WaterTraining</string>
+    <string name="add">Añadir entrenamiento</string>
+    <string name="stats">Estadísticas</string>
+</resources>
