@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -29,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu cm, View v, ContextMenu.ContextMenuInfo cmi){
        this.getMenuInflater().inflate(R.menu.context_menu, cm);
-        cm.setHeaderTitle( R.string.asd)​;
     }
 
     @Override
@@ -70,6 +71,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        SharedPreferences prefs = getSharedPreferences("miscondolencias", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putString("tamanho", String.valueOf(tasks.size()));
+        for (int i =0;i<tasks.size();i++){
+            editor.putString("tarea" +i, tasks.get(i).getTask());
+            editor.putString("anho" +i, String.valueOf(tasks.get(i).getAnho()));
+            editor.putString("mes" +i, String.valueOf(tasks.get(i).getMes()));
+            editor.putString("dia" +i, String.valueOf(tasks.get(i).getDia()));
+        }
+        editor.apply();
+
+        items.clear();
+        tasks.clear();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -77,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         this.tasks = new ArrayList<Task>();
 
         ListView lvItems = (ListView) this.findViewById(R.id.lvItems);
+        this.registerForContextMenu(lvItems);
         lvItems.setLongClickable(true);
         this.itemsAdapter = new ArrayAdapter<String>(
                 this.getApplicationContext(),
@@ -136,6 +157,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
+        SharedPreferences prefs = getSharedPreferences("miscondolencias",Context.MODE_PRIVATE);
+
+        int tamanho = Integer.valueOf(prefs.getString("tamanho","0"));
+
+        for (int i=0;i<tamanho;i++){
+            String tarea = prefs.getString("tarea"+i,"");
+            int anho = Integer.valueOf(prefs.getString("anho"+i,"0"));
+            int mes = Integer.valueOf(prefs.getString("mes"+i,"0"));
+            int dia = Integer.valueOf(prefs.getString("dia"+i,"0"));
+
+            aux = dia + "/" + (mes + 1) + "/" + anho;
+            Task task = new Task();
+            task.setTask(tarea);
+            task.setAnho(anho);
+            task.setMes(mes);
+            task.setDia(dia);
+            tasks.add(task);
+            itemsAdapter.add(task.getTask()+ "(" + aux + ")");
+        }
 
         caduca();
         this.selected = new boolean[posiciones.size()];
@@ -164,22 +204,13 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < items.size(); i++) {
             int a, b, c;
             a = tasks.get(i).getDia();
-            System.out.println("+++++++" + a + "--------");
             b = tasks.get(i).getMes();
-            System.out.println("+++++++" + b + "--------");
             c = tasks.get(i).getAnho();
-            System.out.println("+++++++" + c + "--------");
-            System.out.println("++++++" + b + "====" + mes + "--------");
             if (c < anho) {
-                System.out.println("+++++++" + "Entro anho" + "--------");
                 posiciones.add(i);
             } else if (b < mes) {
-
-                System.out.println("+++++++" + "Entro mes" + "--------");
                 posiciones.add(i);
             } else if (a < dia) {
-                System.out.println("++++++" + a + "====" + dia + "--------");
-                System.out.println("+++++++" + "Entro dia" + "--------");
                 posiciones.add(i);
             }
         }
@@ -213,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
                 aux();
             }
         });
+        builder.setNegativeButton("No borrar tareas", null);
         builder.create().show();
     }
 
