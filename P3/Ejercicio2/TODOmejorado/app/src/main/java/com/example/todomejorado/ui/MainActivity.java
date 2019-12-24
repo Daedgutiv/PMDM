@@ -99,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
         ListView lvItems = (ListView) this.findViewById(R.id.lvItems);
         this.registerForContextMenu(lvItems);
         lvItems.setLongClickable(true);
+        Button btadd = (Button) findViewById(R.id.btAdd);
+        btadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.onAdd();
+            }
+        });
         this.itemsAdapter = new ArrayAdapter<String>(
                 this.getApplicationContext(),
                 android.R.layout.simple_selectable_list_item,
@@ -139,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setPositiveButton("Modificar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if (editText.getText().toString().isEmpty()){
+                    if (editText.getText().toString().trim().isEmpty()){
                         android.app.AlertDialog.Builder b = new android.app.AlertDialog.Builder(MainActivity.this);
                         b.setMessage("El campo a modificar está vacío, no se guardarán los cambios.");
                         b.setPositiveButton("Aceptar", null);
@@ -167,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
             int mes = Integer.valueOf(prefs.getString("mes"+i,"0"));
             int dia = Integer.valueOf(prefs.getString("dia"+i,"0"));
 
-            aux = dia + "/" + (mes + 1) + "/" + anho;
+            aux = dia + "/" + mes + "/" + anho;
             Task task = new Task();
             task.setTask(tarea);
             task.setAnho(anho);
@@ -272,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("+", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (!edText.getText().toString().isEmpty()) {
+                if (!edText.getText().toString().trim().isEmpty()) {
                     introducirFecha(edText.getText().toString());
                 } else {
                     vacio();
