@@ -197,7 +197,12 @@ public class MainActivity extends AppCompatActivity {
             media = media + partidos.get(i).valoracion();
         }
         TextView val = (TextView) this.findViewById(R.id.media);
-        val.setText("Valoración media: " + media/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()==0){
+            val.setText("Valoración media: 0");
+        } else {
+            val.setText("Valoración media: " + media/MainActivity.this.partidos.size());
+        }
+
     }
 
     public void puntos(){
@@ -205,77 +210,109 @@ public class MainActivity extends AppCompatActivity {
         for (int i =0;i<MainActivity.this.partidos.size();i++){
            puntosTotales = puntosTotales + partidos.get(i).getPuntos();
         }
-        adapter.add("Puntos por partido: " + puntosTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Puntos por partido: " + puntosTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void asistencias(){
         int asistenciasTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             asistenciasTotales = asistenciasTotales + partidos.get(i).getAsistencias();
         }
-        adapter.add("Asistencias por partido: " + asistenciasTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Asistencias por partido: " + asistenciasTotales/MainActivity.this.partidos.size());
+        }
     }
     public void robos(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getRobos();
         }
-        adapter.add("Robos por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Robos por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void tapones(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getTapones();
         }
-        adapter.add("Tapones por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Tapones por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void faltasRealizadas(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getFaltasRealizadas();
         }
-        adapter.add("Faltas por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Faltas por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void faltasRecibidas(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getFaltasRecibidas();
         }
-        adapter.add("Faltas recibidas por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Faltas recibidas por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void tirosFallados(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getTirosFallados();
         }
-        adapter.add("Tiros fallados por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Tiros fallados por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void libresFallados(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getLibresFallados();
         }
-        adapter.add("Tiros libres fallados por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Tiros libres fallados por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void taponesRecibidos(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getTaponesRecibidos();
         }
-        adapter.add("Tapones recibidos por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Tapones recibidos por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void perdidas(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getPerdidas();
         }
-        adapter.add("Perdidas por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Perdidas por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
     public void rebotes(){
         int rebotesTotales=0;
         for (int i =0;i<MainActivity.this.partidos.size();i++){
             rebotesTotales = rebotesTotales + partidos.get(i).getRebotes();
         }
-        adapter.add("Rebotes por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        if (MainActivity.this.partidos.size()!=0){
+            adapter.add("Rebotes por partido: " + rebotesTotales/MainActivity.this.partidos.size());
+        }
+
     }
 
 }
