@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TO-DO</string>
+    <string name="anhadir">Añadir tarea</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="modificar">Modificar</string>
+    <string name="asd">seg</string>
+</resources>
