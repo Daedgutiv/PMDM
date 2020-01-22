@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TO-DO</string>
+    <string name="anhadir">Añadir tarea</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="modificar">Modificar</string>
+    <string name="asd">seg</string>
+    <string name="btCancelar">Cancelar</string>
+    <string name="btGuardar">Guardar</string>
+    <string name="Fecha">Fecha</string>
+    <string name="task">Task</string>
+    <string name="Task">Task</string>
+</resources>
