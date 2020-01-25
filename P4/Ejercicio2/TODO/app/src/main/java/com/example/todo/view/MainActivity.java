@@ -72,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 toret = true;
                 break;
             case R.id.delete:
-                final Tasks app = (Tasks) this.getApplication();
-                app.eliminarTask(pos);
-                this.adaptadorItems.notifyDataSetChanged();
+                borrarDialog(pos);
                 toret =true;
                 break;
         }
@@ -161,8 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
         android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("Tareas Caducadas");
-
+        builder.setTitle("Seleccione las tareas caducadas que quiere eliminar:");
         builder.setMultiChoiceItems(strings, selected, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
@@ -171,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        builder.setPositiveButton("Borrar tarea", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 int aux=0;
@@ -183,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        builder.setNegativeButton("No borrar tareas", null);
         builder.create().show();
 
     }
@@ -194,6 +190,24 @@ public class MainActivity extends AppCompatActivity {
 
         app.eliminarTask((posiciones.get(i)-aux));
         this.adaptadorItems.notifyDataSetChanged();
+    }
+
+    protected void borrarDialog (final int pos){
+        android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Borrado");
+        builder.setMessage("Está seguro que quiere borrar esta tarea?");
+        builder.setNegativeButton("No borrar", null);
+        builder.setPositiveButton("Borrar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                final Tasks app = (Tasks) MainActivity.this.getApplication();
+                app.eliminarTask(pos);
+                MainActivity.this.adaptadorItems.notifyDataSetChanged();
+            }
+        });
+
+        builder.create().show();
+
     }
 
 }

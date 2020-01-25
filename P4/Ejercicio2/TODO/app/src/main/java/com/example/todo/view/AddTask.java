@@ -27,6 +27,8 @@ public class AddTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final Button btGuardar = (Button) this.findViewById(R.id.btGuardar);
         final Button btCancelar = (Button) this.findViewById(R.id.btCancelar);
         final Button btFecha = (Button) this.findViewById(R.id.btfecha);

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_item_edition"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    tools:context="com.example.watertraining.view.AddEntrenamiento">
+
+    <LinearLayout
+        android:background="@layout/linea"
+        android:layout_width="350dp"
+        android:layout_height="5dp"
+        android:orientation="vertical"
+        android:layout_weight="0.05"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="200dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:text="@string/kil_metros_totales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:textSize="15dp"/>
+            <TextView
+                android:text="100 km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/kmtotales"
+                android:layout_weight="1"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:text="@string/minutos_por_kilometro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblTiempo"
+                android:layout_weight="0.5"
+                android:textSize="15dp"/>
+            <TextView
+                android:text="100 km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/minKm"
+                android:layout_weight="1"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        android:gravity="right|center_vertical">
+        <Button
+            android:text="@string/atras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/atras"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

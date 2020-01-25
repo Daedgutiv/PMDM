@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WaterTraining</string>
+    <string name="anhadir">Añadir entrenamiento</string>
+    <string name="stats">Stats</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="distancia">Distancia(Km)</string>
+    <string name="tiempo_min">Tiempo(min)</string>
+    <string name="btCancelar">Cancelar</string>
+    <string name="btGuardar">Guardar</string>
+    <string name="atras">Atrás</string>
+    <string name="kil_metros_totales">Kilómetros totales:</string>
+    <string name="minutos_por_kilometro">Minutos por kilometro:</string>
+</resources>
