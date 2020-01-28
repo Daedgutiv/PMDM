@@ -22,7 +22,9 @@ import com.example.watertraining.core.Entrenamiento;
 
 public class MainActivity extends AppCompatActivity {
 
+    //adaptador para la lista
     private ArrayAdapter<Entrenamiento> adaptadorEntrenamientos;
+    //codigos de las actividades
     protected static final int CODIGO_ADD_ENTRENAMIENTO = 102;
     protected static final int CODIGO_EDIT_ENTRENAMIENTO = 100;
 
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //declaracion de la aplicacion para utilizar la lista de entrenamientos
         final AplicattionEntrenamientos app = (AplicattionEntrenamientos) this.getApplication();
 
         ListView lista = (ListView) this.findViewById(R.id.entrenamientos);
@@ -53,11 +55,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //para crear el context menu
     @Override
     public void onCreateContextMenu(ContextMenu cm, View v, ContextMenu.ContextMenuInfo cmi){
         this.getMenuInflater().inflate(R.menu.context_menu, cm);
     }
 
+    //lo que hacen las opciones del context menu
     @Override
     public boolean onContextItemSelected(MenuItem menuItem){
         boolean toret = false;
@@ -78,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         return toret;
     }
 
+    //crear menu de la actividad
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         super.onCreateOptionsMenu(menu);
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // Indica que se hace en cada opcion del menu
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem){
         boolean toret = false;
@@ -104,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         return toret;
     }
 
+    //Que hacer segun el resultado de las actividades segun su codigo
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -119,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         return;
     }
 
+    //crear un dialog para conprobar si se quiere borrar
     protected void borrarDialog (final int pos){
         android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Borrado");

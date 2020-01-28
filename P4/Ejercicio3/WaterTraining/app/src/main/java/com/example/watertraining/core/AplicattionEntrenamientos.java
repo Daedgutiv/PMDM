@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import java.util.ArrayList;
 import java.util.List;
 
+//clase que almacena una lista de entrenamientos
 public class AplicattionEntrenamientos extends Application {
 
     private List<Entrenamiento> entrenamientos;
@@ -18,6 +19,7 @@ public class AplicattionEntrenamientos extends Application {
         leer();
     }
 
+    //lee los preferences para crear la lista de entrenamientos
     private void leer(){
         SharedPreferences prefs = getSharedPreferences("WaterTraining", Context.MODE_PRIVATE);
 
@@ -38,6 +40,7 @@ public class AplicattionEntrenamientos extends Application {
 
     public List<Entrenamiento> getEntrenamientos(){return this.entrenamientos;}
 
+    //metodo que añade un entrenamiento a la lista
     public void addEntrenamiento (float distancia, float tiempo){
 
         Entrenamiento entrenamiento = new Entrenamiento();
@@ -51,6 +54,7 @@ public class AplicattionEntrenamientos extends Application {
 
     }
 
+    //metodo que escribe en los preferences la lista de entrenamientos
     private void escribir(){
 
         SharedPreferences prefs = getSharedPreferences("WaterTraining", Context.MODE_PRIVATE);
@@ -67,6 +71,7 @@ public class AplicattionEntrenamientos extends Application {
         editor.apply();
     }
 
+    //modifica un entrenamiento que ya se habia añadido
     public void modifiedEntrenamiento(int pos, float distancia, float tiempo){
 
         Entrenamiento entrenamiento = new Entrenamiento();
@@ -77,6 +82,7 @@ public class AplicattionEntrenamientos extends Application {
         this.entrenamientos.add(entrenamiento);
     }
 
+    //metodo que elimina un entrenamiento
     public void eliminarEntrenamiento(int pos){
         this.entrenamientos.remove(pos);
 

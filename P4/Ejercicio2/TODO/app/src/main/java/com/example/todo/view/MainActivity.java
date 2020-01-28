@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         return;
     }
 
+    //comprueba si hay tareas caducadas
     @Override
     public void onResume(){
         super.onResume();
@@ -139,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //metodo que muestras las tareas caducadas y borra las que quieras borrar
     public void alerta(final List<Integer> posiciones){
 
         final Tasks app = (Tasks) this.getApplication();
@@ -184,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //metodo auxiliar para borrar tareas caducadas
     public void eliminar(int aux, List<Integer> posiciones, int i){
 
         final Tasks app = (Tasks) this.getApplication();
@@ -192,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
         this.adaptadorItems.notifyDataSetChanged();
     }
 
+    //metodo que crea un dialog para comprobar si se esta seguro de querer borrar la tarea
     protected void borrarDialog (final int pos){
         android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Borrado");

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import java.util.ArrayList;
 import java.util.List;
 
+//clase que contiene una lista de tareas
 public class Tasks extends Application {
 
     private List<Task> tasks;
@@ -18,6 +19,7 @@ public class Tasks extends Application {
         leer();
     }
 
+    //metodo que lee en los rpeferences las tareas y las mete en la lista de la clase
     private void leer(){
         SharedPreferences prefs = getSharedPreferences("TODO", Context.MODE_PRIVATE);
 
@@ -43,6 +45,7 @@ public class Tasks extends Application {
         return tasks;
     }
 
+    //metodo que añade una tarea a la lista
     public void addTask (String text, int ano, int mes, int dia){
 
         Task task = new Task();
@@ -57,6 +60,7 @@ public class Tasks extends Application {
 
     }
 
+    //metodo que escribe en los preferences la lista de las tareas
     private void escribir(){
 
         SharedPreferences prefs = getSharedPreferences("TODO", Context.MODE_PRIVATE);
@@ -75,6 +79,7 @@ public class Tasks extends Application {
 
     }
 
+    //metodo que modifica una tarea ya creada
     public void modifiedTask (int pos, String text, int ano, int mes, int dia){
 
         Task task = new Task();
@@ -86,6 +91,7 @@ public class Tasks extends Application {
         this.tasks.set(pos,task);
     }
 
+    //metodo que elimina una tarea
     public void eliminarTask(int pos){
         this.tasks.remove(pos);
 

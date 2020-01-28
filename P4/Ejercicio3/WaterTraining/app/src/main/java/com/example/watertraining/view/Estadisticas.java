@@ -1,8 +1,6 @@
 package com.example.watertraining.view;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,6 +15,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.List;
 
+//Clase que muestra las estadisticas
 public class Estadisticas extends AppCompatActivity {
 
     DecimalFormatSymbols dfs;

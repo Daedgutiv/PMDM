@@ -2,6 +2,7 @@ package com.example.todo.core;
 
 import java.util.Calendar;
 
+//clase que contiene los datos de las tareas
 public class Task {
    private String task;
    private int ano;
@@ -40,6 +41,7 @@ public class Task {
         this.dia = dia;
     }
 
+    //metodo que devuelve si una tarea esta caducada
     public boolean isFinish(){
 
         Calendar c = Calendar.getInstance();

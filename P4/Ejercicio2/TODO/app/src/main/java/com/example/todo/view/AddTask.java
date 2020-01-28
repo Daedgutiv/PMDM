@@ -20,6 +20,7 @@ import com.example.todo.core.Tasks;
 
 import java.util.Calendar;
 
+//actividad que permite añadir y modificar las tareas
 public class AddTask extends AppCompatActivity {
 
     @Override
@@ -80,6 +81,7 @@ public class AddTask extends AppCompatActivity {
                         ano,mes,dia
                         );
                 date.show();
+                btGuardar.setEnabled(true);
             }
         });
 
@@ -125,6 +127,8 @@ public class AddTask extends AppCompatActivity {
                 btGuardar.setEnabled(edTask.getText().toString().trim().length()>0);
             }
         });
+
+
 
     }
 }

@@ -14,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.watertraining.R;
 import com.example.watertraining.core.AplicattionEntrenamientos;
-import com.example.watertraining.core.Entrenamiento;
 
+//actividad que permite añadir y modificar los entrenamientos
 public class AddEntrenamiento extends AppCompatActivity {
 
     @Override

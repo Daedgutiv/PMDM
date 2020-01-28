@@ -1,5 +1,6 @@
 package com.example.watertraining.core;
 
+//clase que almacena los datos del entrenamiento
 public class Entrenamiento {
 
     private float min;
