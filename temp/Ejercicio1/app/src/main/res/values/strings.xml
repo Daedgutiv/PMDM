@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Ejercicio1</string>
+    <string name="lblModifica">Modificar</string>
+    <string name="lblElimina">Eliminar</string>
+    <string name="Nombre">Nombre</string>
+    <string name="apellido1">Primer Apellido</string>
+    <string name="apellido2">Segundo Apellido</string>
+    <string name="email">Email</string>
+    <string name="telefono">Teléfono</string>
 </resources>

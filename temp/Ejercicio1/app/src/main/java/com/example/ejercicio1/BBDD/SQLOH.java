@@ -24,8 +24,8 @@ public class SQLOH extends SQLiteOpenHelper {
     public static String CONTACTO_ID="id";
     public static String TABLA_AGENDA = "agenda";
 
-    public SQLOH(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public SQLOH( Context context) {
+        super(context, DB_NOMBRE, null, DB_VERSION);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class SQLOH extends SQLiteOpenHelper {
         Log.i("DBManager", "Creando BBDD " + DB_NOMBRE + " v" + DB_VERSION);
         try {
             db.beginTransaction();
-            db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLA_AGENDA + "(" + CONTACTO_ID + "int PRIMARY KEY AUTOINCREMENT," + CONTACTO_NOMBRE + " string(16) NOT NULL, " + CONTACTO_APELLIDO1 + " string(20) NOT NULL, " + CONTACTO_APELLIDO2 + " string(20), " + CONTACTO_EMAIL + " string(30), " + CONTACTO_TELEFONO + " string(9) NOT NULL" + ")" );
+            db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLA_AGENDA + "(" + CONTACTO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + CONTACTO_NOMBRE + " string(16) NOT NULL, " + CONTACTO_APELLIDO1 + " string(20) NOT NULL, " + CONTACTO_APELLIDO2 + " string(20), " + CONTACTO_EMAIL + " string(30), " + CONTACTO_TELEFONO + " string(9) NOT NULL" + ")" );
             db.setTransactionSuccessful();
         } catch (SQLException exc){
             Log.e("DBManager.onCreate", "Creando" + TABLA_AGENDA + ": " + exc.getMessage());
@@ -59,7 +59,11 @@ public class SQLOH extends SQLiteOpenHelper {
     }
 
     public Cursor recuperar(){
-        return this.getReadableDatabase().query(TABLA_AGENDA, null,null,null,null,null,null);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor= db.rawQuery("SELECT " + CONTACTO_ID + ", " + CONTACTO_NOMBRE + ", " + CONTACTO_APELLIDO1 + ", " + CONTACTO_APELLIDO2 + ", " + CONTACTO_EMAIL + ", " + CONTACTO_TELEFONO, null);
+
+        return cursor;
     }
 
     public boolean insertarContacto(Contacto contacto){
@@ -82,6 +86,38 @@ public class SQLOH extends SQLiteOpenHelper {
 
         return toret;
 
+    }
+
+    public boolean eliminarCotacto(int id){
+        boolean toret = false;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try{
+            db.beginTransaction();
+            db.execSQL("DELETE FROM " + TABLA_AGENDA + " WHERE " + CONTACTO_ID + " = ?", new String[]{String.valueOf(id)});
+            db.setTransactionSuccessful();
+            toret = true;
+        } catch (SQLException exc){
+            Log.e("DBManager.eliminar", exc.getMessage());
+        }
+
+        return toret;
+    }
+
+    public boolean modificarContacto(Contacto contacto){
+        boolean toret= false;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try {
+             db.beginTransaction();
+             db.execSQL("UPDATE " + TABLA_AGENDA + " SET " + CONTACTO_NOMBRE + " = " + contacto.getNombre() + "," + CONTACTO_APELLIDO1 + " = " + contacto.getApellido1() + "," + CONTACTO_APELLIDO2 + " =" + contacto.getApellido2() + "," + CONTACTO_EMAIL + "=" + contacto.getEmail() + "," + CONTACTO_TELEFONO +"= " + contacto.getTelefono() + " WHERE " + CONTACTO_ID + "=?");
+             db.setTransactionSuccessful();
+             toret=true;
+        } catch (SQLException exc){
+            Log.e("DBManager.modificar", exc.getMessage());
+        }
+
+        return toret;
     }
 
 
