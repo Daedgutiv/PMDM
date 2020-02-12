@@ -13,15 +13,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_person_black_24dp"
-            android:layout_weight="0.2"/>
+           android:padding="10dp"
+            android:layout_marginLeft="10dp"/>
 
-        <TextView android:id="@+id/contacto"
+        <TextView android:id="@+id/conNombre"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="0.8"
             android:textStyle="italic"
-            android:textSize="16sp"
-            android:gravity="end|center_vertical" />
+            android:textSize="25sp"
+            android:gravity="end|center_vertical"
+            android:layout_marginRight="5dp"/>
+        <TextView android:id="@+id/conApellido1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textStyle="italic"
+            android:textSize="25sp"
+            android:gravity="end|center_vertical"
+            android:layout_marginRight="5dp"/>
+        <TextView android:id="@+id/conApellido2"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textStyle="italic"
+            android:textSize="25sp"
+            android:gravity="end|center_vertical"
+            android:layout_marginRight="20dp"/>
     </LinearLayout>
     <TextView
         android:layout_width="fill_parent"

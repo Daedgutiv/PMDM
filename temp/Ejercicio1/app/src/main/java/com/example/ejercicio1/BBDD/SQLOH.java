@@ -21,7 +21,7 @@ public class SQLOH extends SQLiteOpenHelper {
     public static String CONTACTO_APELLIDO2="apellido2";
     public static String CONTACTO_EMAIL="email";
     public static String CONTACTO_TELEFONO="telefono";
-    public static String CONTACTO_ID="id";
+    public static String CONTACTO_ID="_id";
     public static String TABLA_AGENDA = "agenda";
 
     public SQLOH( Context context) {
@@ -61,7 +61,7 @@ public class SQLOH extends SQLiteOpenHelper {
     public Cursor recuperar(){
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor= db.rawQuery("SELECT " + CONTACTO_ID + ", " + CONTACTO_NOMBRE + ", " + CONTACTO_APELLIDO1 + ", " + CONTACTO_APELLIDO2 + ", " + CONTACTO_EMAIL + ", " + CONTACTO_TELEFONO, null);
+        Cursor cursor= db.rawQuery("SELECT * FROM " + TABLA_AGENDA, null);
 
         return cursor;
     }
@@ -118,6 +118,25 @@ public class SQLOH extends SQLiteOpenHelper {
         }
 
         return toret;
+    }
+
+    public Contacto getContacto(int id){
+
+        System.out.println(id);
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        System.out.println("SELECT " + CONTACTO_NOMBRE + ", " + CONTACTO_APELLIDO1 + ", " + CONTACTO_APELLIDO2 + ", " + CONTACTO_EMAIL + ", " + CONTACTO_TELEFONO + " FROM " + TABLA_AGENDA + " WHERE " + CONTACTO_ID + " = " + id);
+
+        Cursor cursor = db.rawQuery("SELECT " + CONTACTO_NOMBRE + ", " + CONTACTO_APELLIDO1 + ", " + CONTACTO_APELLIDO2 + ", " + CONTACTO_EMAIL + ", " + CONTACTO_TELEFONO + " FROM " + TABLA_AGENDA + " WHERE " + CONTACTO_ID + " = " + id, null);
+
+        Contacto contacto=null;
+        while (cursor.moveToNext()){
+            contacto = new Contacto(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+        }
+
+        cursor.close();
+
+        return contacto;
     }
 
 

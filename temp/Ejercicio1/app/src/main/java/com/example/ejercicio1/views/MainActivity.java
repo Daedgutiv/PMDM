@@ -21,7 +21,6 @@ import com.example.ejercicio1.BBDD.SQLOH;
 import com.example.ejercicio1.R;
 import com.example.ejercicio1.core.Contacto;
 
-import java.util.Currency;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         btAnhadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                subActividad(new Contacto());
+                Contacto contacto = new Contacto();
+                contacto.setId(-1);
+                subActividad(contacto);
             }
         });
 
@@ -53,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
         final ListView lista = this.findViewById(R.id.contactos);
 
         this.adpatadorDB = new SimpleCursorAdapter(
-                this, R.layout.lista_contactos, null, new String[]{SQLOH.CONTACTO_NOMBRE + SQLOH.CONTACTO_APELLIDO1 + SQLOH.CONTACTO_APELLIDO2},
-                new int[]{R.id.contacto}
+                this, R.layout.lista_contactos,
+                null,
+                new String[]{SQLOH.CONTACTO_NOMBRE, SQLOH.CONTACTO_APELLIDO1, SQLOH.CONTACTO_APELLIDO2},
+                new int[]{R.id.conNombre, R.id.conApellido1, R.id.conApellido2}
         );
         lista.setAdapter(this.adpatadorDB);
         this.actualizaLista();
@@ -127,8 +130,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void actualizaLista(){
         final TextView contador = this.findViewById(R.id.contador);
-
+        System.out.println("Aqui no 0");
         this.adpatadorDB.changeCursor(this.gestorDB.recuperar());
+        System.out.println("Aqui no ultimo");
         contador.setText(String.format(Locale.getDefault(), "%d", this.adpatadorDB.getCount()));
     }
 
