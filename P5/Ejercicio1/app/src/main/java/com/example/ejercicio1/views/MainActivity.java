@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -87,7 +88,25 @@ public class MainActivity extends AppCompatActivity {
         this.adpatadorDB.getCursor().close();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        super.onCreateOptionsMenu(menu);
+        this.getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected (MenuItem menuItem){
+        boolean toret = false;
+        switch (menuItem.getItemId() ){
+            case R.id.menu_anhadir:
+                Contacto contacto = new Contacto();
+                contacto.setId(-1);
+                subActividad(contacto);
+                break;
+        }
+        return toret;
+    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
