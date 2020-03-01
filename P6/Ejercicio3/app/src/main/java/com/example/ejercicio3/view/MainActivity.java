@@ -50,11 +50,28 @@ public class MainActivity extends Activity implements Observer {
             @Override
             public void onClick(View v) {
                 codigoPostal= edSearch.getText().toString();
-                try {
-                    new HttpFetcher(MainActivity.this, codigoPostal ).execute( new URL( HttpFetcher.TIME_URL ) );
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
+                if (codigoPostal.trim().isEmpty()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("Error no se introdujo un código postal");
+                    builder.setPositiveButton("Aceptar", null);
+                    builder.setNegativeButton("Cancelar", null);
+                    builder.create().show();
+                } else if (!isNum(codigoPostal)){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("Error no se introdujo un código postal válido");
+                    builder.setPositiveButton("Aceptar", null);
+                    builder.setNegativeButton("Cancelar", null);
+                    builder.create().show();
+                } else {
+                    try {
+                        new HttpFetcher(MainActivity.this, codigoPostal ).execute( new URL( HttpFetcher.TIME_URL ) );
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
                 }
+
             }
         });
 
@@ -63,6 +80,15 @@ public class MainActivity extends Activity implements Observer {
         this.adapter = new ArrayAdapter<Ayuntamiento>(this, android.R.layout.simple_selectable_list_item, listaAyunta.getLista());
         lista.setAdapter(this.adapter);
 
+    }
+
+    public boolean isNum(String num){
+        try {
+            Integer.valueOf(num);
+            return true;
+        }catch (NumberFormatException exc){
+            return false;
+        }
     }
 
     public void alertPaises(){
