@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Calculator</title>
+    <script type="text/javascript">
+function calculate() {
+	var edOp1 = document.getElementById( "edOp1" );
+	var edOp2 = document.getElementById( "edOp2" );
+	var dvResult = document.getElementById( "dvResult" );
+	var operaciones = document.getElementById("operaciones");
+	dvResult.innerHTML = "";
+	var pResult = document.createElement( "p" );
+	dvResult.appendChild( pResult );
+	var op1 = parseInt( edOp1.value, 10 );
+	var op2 = parseInt( edOp2.value, 10 );
+	if (operaciones.value=="suma"){
+	    var res = op1 + op2;
+	} else if (operaciones.value=="resta"){
+	 var res = op1 - op2;
+	}else if (operaciones.value=="multiplicacion"){
+	 var res = op1 * op2;
+	}else if (operaciones.value=="division"){
+	 var res = op1 / op2;
+	}
+	pResult.appendChild( document.createTextNode( res.toString() ) );
+	Android.showToast( res.toString() );
+}
+</script>
+</head>
+<body>
+<p>
+<form id="formCalc" onSubmit="javascript: calculate(); return false;">
+    <input id="edOp1" type="text" size="10" placeholder="0" style="text-align: right"/>
+    <select id="operaciones">
+        <option value="suma">suma</option>
+        <option value="resta">resta</option>
+        <option value="multiplicacion">multiplicación</option>
+        <option value="division">división</option>
+    </select>
+    <br /><input id="edOp2" type="text" size="10" placeholder="0" style="text-align: right"/>
+    <input id="btCalc" type="submit" value="="/>
+</form>
+</p>
+<p>
+    Result:
+<div id="dvResult">
+</div>
+</p>
+</body>
+</html>
